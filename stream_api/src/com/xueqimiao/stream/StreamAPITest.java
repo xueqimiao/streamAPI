@@ -25,7 +25,6 @@ public class StreamAPITest {
         System.out.println(li);
     }
 
-
     //模拟数据库查询出的user集合01
     List<User> users01 = Arrays.asList(
             new User(1, "张三", 26, "2018-12-31"),
@@ -84,7 +83,6 @@ public class StreamAPITest {
     //4.取出users01中的Id在users02中没有的user
     @Test
     public void test04() {
-
         //取出所有users02的id
         List<Integer> user02Ids = users02.stream().map(User::getId).collect(Collectors.toList());
         System.out.println(user02Ids);
@@ -93,7 +91,6 @@ public class StreamAPITest {
             System.out.println(user.getName() + ":" + user.getAge());
         });
     }
-
 
     //5.累加users01的所有年龄
     @Test
@@ -105,7 +102,6 @@ public class StreamAPITest {
                 .map(User::getAge)
                 .reduce(Integer::sum);
         System.out.println(op.get());
-
     }
 
     //6.users01按照birthday排序
@@ -211,7 +207,19 @@ public class StreamAPITest {
                 .collect(Collectors.summarizingDouble(User::getAge));
 
         System.out.println(dss.getMax());
+    }
 
+    /**
+     * 归约
+     * reduce(T identity, BinaryOperator) / reduce(BinaryOperator) ——可以将流中元素反复结合起来，得到一个值。
+     */
+    //12.累加数字
+    @Test
+    public void test12(){
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        Integer sum = list.stream()
+                .reduce(0, (x, y) -> x + y);
+        System.out.println(sum);
     }
 
 
