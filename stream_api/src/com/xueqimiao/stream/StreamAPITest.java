@@ -113,15 +113,12 @@ public class StreamAPITest {
         userList.stream().forEach((user) -> {
             System.out.println(user.getName() + ":" + user.getAge()+":"+user.getBirthday());
         });
-
         System.out.println("--------------------------");
-
         //根据年龄自然顺序
         List<User> userList1 = userList.stream().sorted(Comparator.comparing(User::getBirthday)).collect(Collectors.toList());
         userList1.stream().forEach((user) -> {
             System.out.println(user.getName() + ":" + user.getAge()+":"+user.getBirthday());
         });
-
     }
 
     //7.去掉users01name重复的只保留一个
@@ -134,7 +131,6 @@ public class StreamAPITest {
             System.out.println(user.getName() + ":" + user.getAge()+":"+user.getBirthday());
         });
     }
-
 
     /**
      * findFirst——返回第一个元素
@@ -221,7 +217,5 @@ public class StreamAPITest {
                 .reduce(0, (x, y) -> x + y);
         System.out.println(sum);
     }
-
-
 
 }
