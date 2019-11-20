@@ -3,6 +3,7 @@ package com.xueqimiao.stream;
 import org.junit.Test;
 
 import javax.swing.plaf.synth.SynthSpinnerUI;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -216,6 +217,32 @@ public class StreamAPITest {
         Integer sum = list.stream()
                 .reduce(0, (x, y) -> x + y);
         System.out.println(sum);
+    }
+
+    List<Student> stuList = Arrays.asList(
+            new Student(1,"张三",1),
+            new Student(2,"李四",2),
+            new Student(3,"李飞",2)
+    );
+
+    List<Grade> gradeList = Arrays.asList(
+            new Grade(1,"大一"),
+            new Grade(2,"大二")
+    );
+
+    //13.将Student信息注入到相应的Grade里面的studentList中
+    @Test
+    public void test13(){
+        gradeList.stream().forEach((grade)->{
+            List<Student> students = stuList.stream().filter((stu) -> stu.getGradeId().equals(grade.getGradeId())).collect(Collectors.toList());
+            grade.setStudentList(students);
+        });
+        gradeList.stream().forEach(grade -> {
+            System.out.println(grade.getGradeName()+"---");
+            grade.getStudentList().stream().forEach(stu->{
+                System.out.println(stu.getStuName());
+            });
+        });
     }
 
 }
