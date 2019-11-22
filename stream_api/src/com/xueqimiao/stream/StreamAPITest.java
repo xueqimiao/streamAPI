@@ -245,4 +245,16 @@ public class StreamAPITest {
         });
     }
 
+    /*
+    * List<Integer> intList = new ArrayList<>();
+intList.add(1);
+intList.add(3);
+intList.add(4);
+List<String> stringList = intList.stream().map(String::valueOf).collect(Collectors.toList());
+
+
+    * */
+
+    //https://www.cnblogs.com/heqiyoujing/p/9859144.html
+
 }
