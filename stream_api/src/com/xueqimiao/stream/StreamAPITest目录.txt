@@ -1,0 +1,19 @@
+1.取出自身重复的数据
+2.取出前2个user01s的姓名
+3.取出users01中age一样的，并算出有几项
+4.取出users01中的Id在users02中没有的user
+5.累加users01的所有年龄
+6.users01按照birthday排序
+7.去掉users01name重复的只保留一个
+8.找到users01中age最小的user
+9.找到users01中任意一个age是23的user
+10.找到users01中age是23的个数
+11.使用归约统计user的最高、最低、平均、总和age
+12.累加数字
+13.将Student信息注入到相应的Grade里面的studentList中
+14.字符串数字集合与整数集合互转
+15.两个List<String>取交集
+16.两个List<String>取差集list1 - list2
+17.两个List<String>取差集list2 - list1
+18.两个List<String>取并集
+19.统计集合重复元素出现次数，并且去重返回hashmap
