@@ -17,3 +17,5 @@
 17.两个List<String>取差集list2 - list1
 18.两个List<String>取并集
 19.统计集合重复元素出现次数，并且去重返回hashmap
+20.模拟数据库模糊查询users01
+21.stream循环拿到下标
