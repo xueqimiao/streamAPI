@@ -51,6 +51,13 @@ public class User {
         this.birthday = birthday;
     }
 
+    public User() {
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
     public User(Integer id, String name, Integer age, String birthday) {
         this.id = id;
         this.name = name;
