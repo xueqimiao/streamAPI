@@ -367,4 +367,33 @@ public class StreamAPITest {
            System.out.println(index);
         });
     }
+
+    @Test
+    public void test22(){
+        Map<Integer,List<User>> userMap = new HashMap<>();
+        List<User> userList = null;
+        for (int i = 0; i < users02.size(); i++) {
+            User user = users02.get(i);
+            if(userMap.get(user.getAge())==null){
+                userList = new ArrayList<>();
+            }
+            userList.add(user);
+            userMap.put(user.getAge(),userList);
+        }
+        for(Integer key : userMap.keySet()){
+           System.out.println("key:"+key+"\n"+"value:"+userMap.get(key));
+        }
+    }
+
+    @Test
+    public void test23(){
+        Map<Integer, List<User>> listMap = users02.stream().collect(Collectors.groupingBy(User::getAge));
+        listMap.keySet().forEach(key->{
+            System.out.println(key);
+            listMap.get(key).forEach((user)->System.out.println(user));
+        });
+        for(Integer key : listMap.keySet()){
+            System.out.println("key:"+key+"\n"+"value:"+listMap.get(key));
+        }
+    }
 }
